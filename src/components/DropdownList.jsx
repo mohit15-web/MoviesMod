@@ -24,28 +24,18 @@ const dropdown = [
     id: 3,
     name: "GENRE",
     droplist: [
-      "AUDIO BASED",
-      "LANGUAGE BASED",
-      "LATEST RELEASED",
-      "HOLLYWOOD",
-      "ADULT MOVIES",
-      "SHORT",
-      "ANIME",
-      "IMDB TOP MOVIES"
-    ]
-  },
-  {
-    id: 4,
-    name: "YEAR",
-    droplist: [
-      "AUDIO BASED",
-      "LANGUAGE BASED",
-      "LATEST RELEASED",
-      "HOLLYWOOD",
-      "ADULT MOVIES",
-      "SHORT",
-      "ANIME",
-      "IMDB TOP MOVIES"
+      "ACTION",
+      "ADVENTURE",
+      "ANIMATED",
+      "COMEDY",
+      "CRIME",
+      "FANTASY",
+      "HORROR",
+      "MYSTERY",
+      "SCI-FI",
+      "ROMANCE",
+      "THRILLER",
+      "DOCUMENTARY"
     ]
   },
   {
@@ -105,7 +95,7 @@ const DropdownList = () => {
 
   return (
     <div>
-      {dropdown.map((item, index) => (
+      {dropdown?.map((item, index) => (
         <div className="relative inline-block text-left" key={item.id}>
           <div>
             <button
@@ -117,8 +107,8 @@ const DropdownList = () => {
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
-              {item.name}
-              {item.droplist && (
+              {item?.name}
+              {item?.droplist && (
                 <svg
                   className="-mr-1 ml-2 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +125,7 @@ const DropdownList = () => {
               )}
             </button>
           </div>
-          {item.droplist && openIndex === index && (
+          {item?.droplist && openIndex === index && (
             <div
               className="origin-top-right absolute -right-10 mt-2 w-40 rounded-md  text-white bg-[#484849]"
               role="menu"
@@ -145,10 +135,10 @@ const DropdownList = () => {
               onMouseLeave={handleMouseLeave}
             >
               <div className="py-1" role="none">
-                {item.droplist.map((list, idx) => (
+                {item?.droplist?.map((list, idx) => (
                   <a
                     href="#"
-                    className="block px-4 py-2 text-sm font-semibold hover:bg-[#3E3E46]"
+                    className="block px-4 py-3 text-sm font-semibold hover:bg-[#3E3E46]"
                     role="menuitem"
                     key={idx}
                   >
