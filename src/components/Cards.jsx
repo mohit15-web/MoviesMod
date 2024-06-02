@@ -16,7 +16,7 @@ function Cards({ data }) {
   const navigate = useNavigate();
   console.log(data);
   return (
-    <div className="px-32 bg-black my-48">
+    <div className="px-40 bg-black mb-48 cursor-pointer">
       {data?.results?.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-6 my-6">
           {data?.results?.map((movie) => (

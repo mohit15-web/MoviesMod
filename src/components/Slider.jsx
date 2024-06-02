@@ -26,6 +26,7 @@ const responsive = {
 const imageBaseURL = "https://image.tmdb.org/t/p/w500";
 
 function Slider({data}) {
+  console.log(data);
     const navigate = useNavigate()
 
   function formatDate(releaseDate) {
@@ -36,17 +37,16 @@ function Slider({data}) {
     const year = date.getFullYear();
     return `${day} ${month} ${year}`;
   }
+  if(!data) return <Loading/>
+
   return (
-    <div>
-     {data?.results?.length === 0 ? (
-        <Loading/>
-     ): (
-        <Carousel responsive={responsive}
+    <div >
+    {data && <Carousel responsive={responsive}
         >
-        {data?.results?.map((movie) => (
+        {data && data?.results?.map((movie) => (
               <div
                 key={movie.id}
-                className="relative w-60 my-3 text-white rounded-t-xl shadow-md"
+                className="relative w-60 my-3 text-white rounded-t-xl shadow-md cursor-pointer"
                 onClick={() => navigate(`/Details/${movie.id}`)}
               >
                 <h1 className="absolute top-[22rem] z-10 left-0 border text-black font-bold bg-white p-1 rounded-full">
@@ -84,8 +84,7 @@ function Slider({data}) {
                 </div>
               </div>
             ))}
-          </Carousel>
-     )}
+          </Carousel>}
     </div>
   );
 }

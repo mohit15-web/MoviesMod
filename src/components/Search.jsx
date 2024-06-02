@@ -1,12 +1,13 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import DropdownList from "./DropdownList";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Search() {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate()
   return (
-    <div className="bg-black fixed top-0 w-[75%] left-52 z-20">
+    <div className="bg-black fixed top-0 w-[80%] left-40 z-20">
       <div className=" bg-[#26272B] flex  py-8 px-10 justify-between items-center ">
         <Link to={"/"}>
         <img
@@ -24,7 +25,9 @@ function Search() {
             onChange={(e) => setQuery(e.target.value)}
             value={query}
           />
-          <button className="bg-[#3E3E46] text-white font-extrabold p-3 rounded-lg text-2xl -ml-2">
+          <button className="bg-[#3E3E46] text-white font-extrabold p-3 rounded-lg text-2xl -ml-2"
+          onClick={() => navigate(`/search/${query}`)}
+          >
             <FaMagnifyingGlass />{" "}
           </button>
         </div>

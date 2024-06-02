@@ -32,10 +32,25 @@ export const MovieApi = createApi({
     }),
     getUpcoming:builder.query({
       query: (upcoming) => `movie/${upcoming}`,
-    })
+    }),
+    getSearch:builder.query({
+      query: (search) => `search/multi?query=${search}`,
+    }),
+    getSimilar:builder.query({
+      query: (id) => `movie/${id}/similar`,
+    }),
+    getRecommendations:builder.query({
+      query: (id) => `movie/${id}/recommendations`,
+    }),
+    getVideos:builder.query({
+      query: (id) => `movie/${id}/videos`,
+    }),
+    getCast:builder.query({
+      query: (id) => `movie/${id}/credits`,
+    }),
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetMoviesQuery, useGetTvshowsQuery , useGetDetailsQuery , useGetTrendingQuery,useGetPopularQuery , useGetUpcomingQuery} = MovieApi;
+export const { useGetMoviesQuery, useGetTvshowsQuery , useGetDetailsQuery , useGetTrendingQuery,useGetPopularQuery , useGetUpcomingQuery , useGetSearchQuery,
+  useGetSimilarQuery,useGetRecommendationsQuery, useGetVideosQuery , useGetCastQuery
+} = MovieApi;
