@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { useGetPopularQuery, useGetTrendingQuery, useGetUpcomingQuery } from "../redux/api";
 import Slider from "./Slider";
+import Loading from "../Loader/Loading";
 
 function Home() {
   const { data: trending } = useGetTrendingQuery("top_rated");
@@ -15,7 +16,8 @@ function Home() {
   }, [trending, popular, upcoming]);
 
   return (
-    <div className=" mt-48 px-56">
+   <>
+   {trending ? ( <div className=" mt-48 px-56">
          <div>
         <h1 className="text-4xl font-bold text-white mb-4">  Trending</h1>
         <Slider data={upcoming} />
@@ -28,7 +30,8 @@ function Home() {
         <h1 className="text-4xl font-bold text-white mb-4 ">Top Rated</h1>
         <Slider data={trending} />
       </div>
-    </div>
+    </div>) : <Loading/>}
+   </>
   );
 }
 

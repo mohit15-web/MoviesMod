@@ -1,3 +1,4 @@
+import { useGetTrendingQuery } from "../redux/api";
 
 let items = [
     "Terms of Use",
@@ -7,8 +8,10 @@ let items = [
     "FAQ"
 ]
 function Footer() {
+
+  const { data: trending } = useGetTrendingQuery("top_rated");
   return (
-    <div className="text-white border-t-2 border-gray-600 pt-10 mt-40 mb-20">
+    <div className={`text-white border-t-2 border-gray-600 pt-10 mt-40 mb-20 ${trending ? "" : "mt-[600px]"}`}>
         <div className="flex justify-center items-center gap-8 text-2xl py-2">
             {items?.map((item) => (
                 <h1 key={item} className="hover:text-gray-600 hover:underline">{item}</h1>

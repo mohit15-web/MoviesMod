@@ -66,6 +66,7 @@ function Slider({data}) {
                     src={`${imageBaseURL}${movie.poster_path}`}
                     className="object-fit rounded-t-xl hover:scale-110 duration-200 ease-in"
                     alt={`${movie.title || movie.name} Poster`}
+                    loading="lazy"
                   />
                 )}
   

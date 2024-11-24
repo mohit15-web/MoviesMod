@@ -56,6 +56,7 @@ function ShowDetails() {
               src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}
               alt={data?.title}
               className=" w-[400px] h-[500px] rounded-2xl"
+              loading="lazy"
             />
             <div className="text-white">
               <h2 className="text-3xl font-bold tracking-wider">
@@ -120,6 +121,8 @@ function ShowDetails() {
                 <img
                   src={`${imageBaseURL}${cast?.profile_path}`}
                   className="w-36 h-36 object-cover rounded-full"
+                  alt="cast"
+                  loading="lazy"
                 />
                 <h1 className=" text-white mt-2 text-center">{cast?.name}</h1>
               </div>

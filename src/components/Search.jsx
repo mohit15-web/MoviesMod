@@ -2,17 +2,19 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import DropdownList from "./DropdownList";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../assets/moviesmodnew-Custom.png";
 
 function Search() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate()
   return (
-    <div className="bg-black fixed top-0 w-[80%] left-40 z-20">
+    <div className="bg-black fixed top-0 w-[84%] left-32 z-20">
       <div className=" bg-[#26272B] flex  py-8 px-10 justify-between items-center ">
         <Link to={"/"}>
         <img
-          src="https://moviesmod.info/wp-content/uploads/2022/12/moviesmodnew-Custom.png"
-          alt=""
+          src={logo}
+          alt="Logo"
+          loading="lazy"
         />
         </Link>
         <div>

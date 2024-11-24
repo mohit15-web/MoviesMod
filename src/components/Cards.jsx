@@ -16,7 +16,7 @@ function Cards({ data }) {
   const navigate = useNavigate();
   console.log(data);
   return (
-    <div className="px-40 bg-black mb-48 cursor-pointer">
+    <div className="px-32 bg-black mb-48 cursor-pointer">
       {data?.results?.length > 0 ? (
         <div className="flex flex-wrap justify-center gap-6 my-6">
           {data?.results?.map((movie) => (
@@ -42,6 +42,7 @@ function Cards({ data }) {
                   src={`${imageBaseURL}${movie?.poster_path}`}
                   className="object-fit rounded-t-xl hover:scale-110 duration-200 ease-in"
                   alt={`${movie?.title || movie?.name} Poster`}
+                  loading="lazy"
                 />
               )}
 
